@@ -1,0 +1,48 @@
+{% load static %}
+
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+  img{
+    border-radius: 50%;
+  }
+  .navbar{
+        background: #76b852; /* fallback for old browsers */
+           background: -webkit-linear-gradient(right, #7C0D45, #76b852);
+         background: -moz-linear-gradient(right, #7C0D45, #76b852);
+        background: -o-linear-gradient(right, #7C0D45, #76b852);
+        background: linear-gradient(to left,  #7C0D45,#76b852);
+        font-family: "Roboto", sans-serif;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+  }
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<a href="{% url 'home' %}" class="nav-link"><img src="{% static 'images/logo2.jpeg' %}" height="50px" width="50px"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <span class="nav-link">Hello, {{ request.user.faculty }}</span>
+      </li>
+      <li class="nav-item active">
+        <a href="{% url 'home' %}" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'account' %}">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
